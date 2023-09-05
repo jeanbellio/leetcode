@@ -3,8 +3,8 @@ package org.example.twopointers;
 public class Subsequence {
 
     public static void main(String[] args) {
-        String s = "aaaaaa";
-        String t = "bbaaaa";
+        String s = "b";
+        String t = "abc";
         System.out.println(isSubsequence(s, t));
     }
 
@@ -12,23 +12,14 @@ public class Subsequence {
         if (s.isEmpty()) {
             return true;
         }
-        boolean isThere = false;
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i; j < t.length(); j++) {
-                if (s.charAt(i) == t.charAt(j)) {
-                    if (j > s.length()) {
-                        return false;
-                    }
-                    isThere = true;
-                    i = j;
-                    break;
-                }
-                isThere = false;
+        int i = 0;
+        int j = 0;
+        while (i < s.length() && j < t.length()) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
             }
-            if (!isThere) {
-                break;
-            }
+            j++;
         }
-        return isThere;
+        return i == s.length();
     }
 }
