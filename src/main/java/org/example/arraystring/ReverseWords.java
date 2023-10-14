@@ -10,7 +10,7 @@ public class ReverseWords {
         System.out.println(reverseWords("a good   example"));
     }
 
-    private static String reverseWords(String s) {
+    private static String reverseWordsOLD(String s) {
         List<String> words = new ArrayList<>(Arrays.stream(s.split(" ")).toList());
         words.removeIf(String::isBlank);
         StringBuilder stringBuilder = new StringBuilder();
@@ -20,5 +20,15 @@ public class ReverseWords {
             words.remove(words.size() - 1);
         }
         return stringBuilder.toString().trim();
+    }
+
+    private static String reverseWords(String s){
+        List<String> words = new ArrayList<>(Arrays.stream(s.split(" ")).toList());
+        words.removeIf(String::isBlank);
+        String result = "";
+        for (int i = words.size() - 1; i >= 0; i--) {
+            result = result + words.get(i) + " ";
+        }
+        return result.trim();
     }
 }
