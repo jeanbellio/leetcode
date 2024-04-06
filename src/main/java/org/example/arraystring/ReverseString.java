@@ -6,7 +6,7 @@ public class ReverseString {
         System.out.println(reverseString("Hello world!"));
     }
 
-    private static String reverseString(String s){
+    private static String reverseString(String s) {
         String result = "";
         for (int i = s.length() - 1; i >= 0; i--) {
             result = result + s.charAt(i);
